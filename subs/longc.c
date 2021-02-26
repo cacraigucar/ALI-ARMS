@@ -3,8 +3,8 @@
 #include <stdlib.h>
 #include <math.h>
 
-#include <../include/mv_utils.h>
-#include <../include/functions.h>
+#include <mv_utils.h>
+#include <functions.h>
 
 int longc(double *dtaum, double *sm, double *jm, double *diagm,
 	     double fincd, int nd,double *pool)

@@ -1,8 +1,8 @@
 
 #include <stdio.h>
 
-#include <../include/functions.h>
-#include <../include/mv_utils.h>
+#include <functions.h>
+#include <mv_utils.h>
 #include <math.h>
 
 int interpol( int n , double *y , double *x ,

@@ -1,7 +1,7 @@
 
 #ifndef HITRAN_H
 #define HITRAN_H
-#include <./include/struct.h>
+#include <struct.h>
 const char *HitranName[]={
 				"This should NEVER HAPPEN!!!",
 				"Water vapour",

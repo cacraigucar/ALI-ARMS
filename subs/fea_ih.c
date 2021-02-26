@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include <../include/functions.h>
-#include <../include/mv_utils.h>
+#include <functions.h>
+#include <mv_utils.h>
 
 int fea_ih(double *dtaum, double *sm, double *jm, double *diagm, 
 	     double fincd, int nd,double *pool)

@@ -1,6 +1,6 @@
 
 #include <math.h>
-#include <../include/functions.h>
+#include <functions.h>
 
 int gauss(double x1, double x2, double *x, 
 	double *w, int n)

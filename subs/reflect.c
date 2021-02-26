@@ -1,5 +1,5 @@
 
-#include <../include/functions.h>
+#include <functions.h>
 
 int reflect(int n, double *an)
 {

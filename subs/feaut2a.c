@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include <../include/functions.h>
+#include <functions.h>
 
 int feaut2a_opt(double *dtaum, double *sm, double *jm, double *diagm,
 	     double fincd, int nd,double *pool)

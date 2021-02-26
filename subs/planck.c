@@ -1,7 +1,7 @@
 
 #include <math.h>
-#include <../include/constants.h>
-#include <../include/functions.h>
+#include <constants.h>
+#include <functions.h>
 
 double planck(double v0, double tkin)
 {

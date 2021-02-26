@@ -1,6 +1,6 @@
 
 #include <math.h>
-#include <../include/functions.h>
+#include <functions.h>
 
 double voigt  (double X, double A)
 {

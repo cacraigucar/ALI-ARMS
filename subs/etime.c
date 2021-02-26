@@ -4,7 +4,7 @@
 #include <sys/types.h>
 #include <stdio.h>
 
-#include <../include/functions.h>
+#include <functions.h>
 
 double el_time(void)
 {
