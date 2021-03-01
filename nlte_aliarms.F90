@@ -48,6 +48,7 @@ contains
 !-----------------------------------------------------------------
 
   use cam_history,  only: outfld
+  use iso_c_binding, only: c_ptr, c_double, c_int
 
   implicit none
 
@@ -67,11 +68,24 @@ contains
 
 ! local variables
 
-  real(r8), dimension(pver) :: p, tn, zkm
-  real(r8), dimension(pver) :: co2_vmr, o_vmr, n2_vmr, o2_vmr
-  real(r8), dimension(pver) :: ali_cool
+  real(c_double), dimension(pver) :: p, tn, zkm
+  real(c_double), dimension(pver) :: co2_vmr, o_vmr, n2_vmr, o2_vmr
+  real(c_double), dimension(pver) :: ali_cool
   
+  integer(c_int) :: pver_c
+
   integer :: icol
+
+  ! Interface to ali C routine
+  interface
+     subroutine ali_(zkm, p, tn, co2_vmr, o_vmr, n2_vmr, o2_vmr, ali_cool, pver_c) bind(c,name='ali')
+        use iso_c_binding, only: c_double, c_int
+        real(c_double), dimension(:) :: p, tn, zkm
+        real(c_double), dimension(:) :: co2_vmr, o_vmr, n2_vmr, o2_vmr
+        real(c_double), dimension(:) :: ali_cool
+        integer(c_int) :: pver_c
+     end subroutine ali_
+  end interface
   
   cool(:,:) = 0.0_r8
  
@@ -85,8 +99,9 @@ contains
       o_vmr = xo(icol,:)
       n2_vmr = xn2(icol,:)
       o2_vmr = xo2(icol,:)
+      pver_c = pver
       
-      call ali(zkm, p, tn, co2_vmr, o_vmr, n2_vmr, o2_vmr, ali_cool, pver)
+      call ali(zkm, p, tn, co2_vmr, o_vmr, n2_vmr, o2_vmr, ali_cool, pver_c)
       
       cool(icol,:) = ali_cool(:) 
   
