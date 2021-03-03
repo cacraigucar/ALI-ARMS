@@ -1,4 +1,3 @@
-
 #ifndef STRUCT_H
 #define STRUCT_H
 
@@ -208,14 +207,17 @@ typedef struct {
 	double		aein;
 	double		debye;
 	} DEBYE_INFO;	
-	
-typedef	struct {
-	int		hitnumber;
-	int		iso;
-	int		name;
-	double		abund;
-	double		amass;
-	} MOLPARAM;
+
+typedef struct {
+    int     hitnumber;
+    int     iso;
+    int     name;
+    double      abund;
+    double      q296;
+    int     gj;
+    double      amass;
+    int     sym;
+    } MOLPARAM;	
 
 typedef struct {
 	double		R;
