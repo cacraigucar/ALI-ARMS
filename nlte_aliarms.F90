@@ -78,11 +78,11 @@ contains
 
   ! Interface to ali C routine
   interface
-     subroutine ali_(zkm, p, tn, co2_vmr, o_vmr, n2_vmr, o2_vmr, ali_cool, pver_c) bind(c,name='ali')
+     subroutine ali_(zkm, p, tn, co2_vmr, o_vmr, n2_vmr, o2_vmr, ali_cool, pver_c) bind(c,name='ali_')
         use iso_c_binding, only: c_float, c_int
-        real(c_float), dimension(:) :: p, tn, zkm
-        real(c_float), dimension(:) :: co2_vmr, o_vmr, n2_vmr, o2_vmr
-        real(c_float), dimension(:) :: ali_cool
+        real(c_float), dimension(*) :: p, tn, zkm
+        real(c_float), dimension(*) :: co2_vmr, o_vmr, n2_vmr, o2_vmr
+        real(c_float), dimension(*) :: ali_cool
         integer(c_int) :: pver_c
      end subroutine ali_
   end interface
