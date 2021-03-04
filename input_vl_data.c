@@ -26,9 +26,9 @@ VIBLEVEL * init_vl_data (
  {0,628, 1101,0,0, 662.37335,3.766000},
  {0,627,    1,0,0,   0.00000,1.83767},
  {0,627, 1101,0,0, 664.72941,3.65961},
- {0, 66,    0,0,0,   0.00000,0.00},   
- {0, 44,    0,0,0,   0.00000,0.00},     
- {0,  6,    0,0,0,   0.00000,0.00}     /* atomic oxygen - no rotation */
+ {0, 66,    0,0,0,   0.00000,1.00},    /* the last element is used in calculating the populations, */  
+ {0, 44,    0,0,0,   0.00000,1.00},    /* and for single level objects it doesn't matter what to put here */ 
+ {0,  6,    0,0,0,   0.00000,1.00}     /* atomic oxygen - no rotation */
  };
  		 
  int	ivl,ivl_curr,NVL_MAX,NVL,iMol,NMOL,NVL_prev;

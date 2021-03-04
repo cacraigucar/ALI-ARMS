@@ -48,7 +48,7 @@ contains
 !-----------------------------------------------------------------
 
   use cam_history,  only: outfld
-  use iso_c_binding, only: c_ptr, c_double, c_int
+  use iso_c_binding, only: c_float, c_int
 
   implicit none
 
@@ -68,9 +68,9 @@ contains
 
 ! local variables
 
-  real(c_double), dimension(pver) :: p, tn, zkm
-  real(c_double), dimension(pver) :: co2_vmr, o_vmr, n2_vmr, o2_vmr
-  real(c_double), dimension(pver) :: ali_cool
+  real(c_float), dimension(pver) :: p, tn, zkm
+  real(c_float), dimension(pver) :: co2_vmr, o_vmr, n2_vmr, o2_vmr
+  real(c_float), dimension(pver) :: ali_cool
   
   integer(c_int) :: pver_c
 
@@ -79,10 +79,10 @@ contains
   ! Interface to ali C routine
   interface
      subroutine ali_(zkm, p, tn, co2_vmr, o_vmr, n2_vmr, o2_vmr, ali_cool, pver_c) bind(c,name='ali')
-        use iso_c_binding, only: c_double, c_int
-        real(c_double), dimension(:) :: p, tn, zkm
-        real(c_double), dimension(:) :: co2_vmr, o_vmr, n2_vmr, o2_vmr
-        real(c_double), dimension(:) :: ali_cool
+        use iso_c_binding, only: c_float, c_int
+        real(c_float), dimension(:) :: p, tn, zkm
+        real(c_float), dimension(:) :: co2_vmr, o_vmr, n2_vmr, o2_vmr
+        real(c_float), dimension(:) :: ali_cool
         integer(c_int) :: pver_c
      end subroutine ali_
   end interface
