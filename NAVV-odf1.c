@@ -9,7 +9,6 @@
 #include <subroutines.h>
 #include <mv_utils.h>
  
-static double	*Hkm, *TE , *MU, *MW;
 
 int	transfer_odf(
 		double			**PopV,
@@ -26,6 +25,7 @@ int	transfer_odf(
 
  LINE_ODF	*line_odf;
  
+ double	        *Hkm, *TE , *MU, *MW;
  double		**COptVVUp, **COptVVDo, **ODF_PROFILE;
  double		*JM, *JBAR;
  double		*OPACL, *OPACM;
