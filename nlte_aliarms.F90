@@ -41,7 +41,7 @@ contains
   end subroutine nlte_aliarms_init
   
 !-----------------------------------------------------------------
-  subroutine nlte_aliarms_calc (lchnk,ncol,pmid,t,xo2,xo,xn2,xco2,cool)
+  subroutine nlte_aliarms_calc (lchnk,ncol,state_zm,pmid,t,xo2,xo,xn2,xco2,cool)
 !-----------------------------------------------------------------
 !
 !
@@ -56,6 +56,7 @@ contains
   integer, intent(in) :: ncol                          ! number of atmospheric columns
   integer, intent(in) :: lchnk                         ! chunk identifier
 
+  real(r8), intent(in) :: state_zm(pcols,pver)         ! model height
   real(r8), intent(in) :: pmid(pcols,pver)             ! model pressure at mid-point
   real(r8), intent(in) :: t(pcols,pver)                ! Neutral temperature (K)
   real(r8), intent(in) :: xco2(pcols,pver)             ! CO2 profile
@@ -92,7 +93,7 @@ contains
   do icol=1,ncol
   
       p = pmid(icol,:)*1.0e-5_r8 ! conver pmid in Pa to bars
-      zkm = -7.0_r8*log(p/1.013_r8)
+      zkm = state_zm(icol,:)/1000._r8
       tn = t(icol,:)
       
       co2_vmr = xco2(icol,:)
